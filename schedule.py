@@ -18,9 +18,14 @@ def give_me_time():
 date_today = datetime.datetime.now().strftime("%d.%m.%y")
 date_tomorrow = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%d.%m.%y")
 
-warehouse_territory_time_bypass = {'ГСМ': give_me_time()}
+warehouse_territory_time_bypass = [
+    {'count': 1, 'area': 'ГСМ', 'timelines': give_me_time()},
+    {'count': 2, 'area': 'Стоянка', 'timelines': give_me_time()},
+    {'count': 3, 'area': 'Ангар', 'timelines': give_me_time()}
+]
 
-doc = DocxTemplate("test.docx")
+
+doc = DocxTemplate("Шаблон.docx")
 
 context = {'date_today': date_today,
            'date_tomorrow': date_tomorrow,
